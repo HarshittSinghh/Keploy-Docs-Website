@@ -1,6 +1,9 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import 'flowbite';
+import "./style.css";
+
 
 function Languages() {
   return (
@@ -29,11 +32,11 @@ function Languages() {
         </svg>
         <h2 className="mb-4 text-xl font-semibold">Languages</h2>
       </div>
-      <ul className="grid grid-cols-3 gap-3  md:grid-cols-3 lg:gap-5">
+      <ul className="card-part flex grid grid-cols-3 gap-3  md:grid-cols-3 lg:gap-5">
         {/* <ul className="grid grid-cols-2 gap-6 xl:gap-8"> */}
         <li className="mt-5 flex flex-col space-y-3 text-lg">
           <Link
-            className="flex flex-col items-center space-x-3 p-6 hover:underline"
+            className=" flex flex-col items-center space-x-3 p-6 hover:underline"
             to={useBaseUrl("/quickstart/samples-gin")}
           >
             <img
@@ -116,7 +119,7 @@ function Languages() {
 
 function Frameworks() {
   return (
-    <div className="flex flex-col rounded-lg bg-[color:var(--ifm-card-background-color)] p-5 shadow transition hover:shadow-lg hover:shadow-[color:var(--ifm-card-shadow-color)]">
+    <div className="card-part flex flex-col rounded-lg bg-[color:var(--ifm-card-background-color)] p-5 shadow transition hover:shadow-lg hover:shadow-[color:var(--ifm-card-shadow-color)]">
       <div className="flex items-center space-x-4">
         <svg
           className="mb-4 h-10 w-10 rounded-lg bg-[color:var(--ifm-color)] p-2 text-[color:var(--ifm-background-color)]"
@@ -178,7 +181,7 @@ function Frameworks() {
         <li className="mt-5 flex flex-col space-y-3 text-lg">
           <Link
             to={useBaseUrl("/dependencies/redis")}
-            className="flex flex-col items-center justify-center space-y-1 p-6 text-center hover:underline "
+            className="flex flex-col items-center justify-center space-y-1 p-6 text-center "
           >
             <img
               className="h-8 w-8"
@@ -189,7 +192,7 @@ function Frameworks() {
           </Link>
         </li>
         <li className="mt-5 flex flex-col space-y-3 text-lg">
-          <Link className="flex flex-col items-center justify-center space-y-1 p-6 text-center hover:underline ">
+          <Link className="flex flex-col items-center justify-center space-y-1 p-6 text-center ">
             <img
               className="h-8 w-8"
               src="/docs/img/mysql-logo.svg"
@@ -199,7 +202,7 @@ function Frameworks() {
           </Link>
         </li>
         <li className="mt-5 flex flex-col space-y-3 text-lg">
-          <Link className="flex flex-col items-center justify-center space-y-1 p-6 text-center hover:underline ">
+          <Link className="flex flex-col items-center justify-center space-y-1 p-6 text-center ">
             <img
               className="h-8 w-8"
               src="/docs/img/dynamodb-logo.svg"
@@ -223,13 +226,91 @@ function Frameworks() {
   );
 }
 
+
+function Slideshow() {
+  const images = [
+    {
+      src: "https://fellowship.keploy.io/images/logo.png",
+      alt: "Keploy Logo",
+    },
+    {
+      src: "https://keploy.io/blog/_next/image?url=https%3A%2F%2Fwp.keploy.io%2Fwp-content%2Fuploads%2F2025%2F05%2FWhat-is-unit-testing-e1746507328551.png&w=3840&q=75",
+      alt: "Keploy",
+    },
+    {
+      src: "https://cyberpanel.net/wp-content/uploads/2025/03/tools-for-CI-and-CD.png",
+      alt: "Keploy Fellowship",
+    },
+    {
+      src: "https://keploy.io/docs/img/gsoc-banner.png",
+      alt: "Keploy GSoC Guide",
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+
+  const next = () => setCurrent((prev) => (prev + 1) % images.length);
+  const prev = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-4xl mx-auto mb-8">
+      <div className="h-64 bg-white flex justify-center items-center border rounded-lg overflow-hidden">
+        <img
+          src={images[current].src}
+          alt={images[current].alt}
+          className="max-h-full object-contain transition-all duration-700 ease-in-out"
+        />
+      </div>
+
+      {/* Controls */}
+      <button
+        onClick={prev}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-full"
+      >
+        ❮
+      </button>
+      <button
+        onClick={next}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1 rounded-full"
+      >
+        ❯
+      </button>
+
+      {/* Dots */}
+      <div className="mt-4 flex justify-center space-x-2">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            className={`w-3 h-3 rounded-full ${
+              i === current ? "bg-blue-600" : "bg-gray-300"
+            }`}
+            onClick={() => setCurrent(i)}
+            style={{ cursor: "pointer" }}
+          ></span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
 export const Intro = () => {
   return (
-    <section className="mb-4 mt-12">
+    <section className="sec-1 mb-4 mt-12">
+      <Slideshow />
       <h2 className="mb-4 text-2xl font-semibold tracking-wide md:text-3xl">
         Supports
       </h2>
-      <div className="grid gap-6  sm:grid-cols-2 xl:gap-8">
+      <div className="support-card grid gap-5  sm:grid-cols-2 xl:gap-8">
         <Languages />
         <Frameworks />
       </div>

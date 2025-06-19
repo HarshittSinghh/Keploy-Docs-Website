@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css";
 export const Community = () => {
   return (
     <section className="mt-12">
@@ -10,7 +10,7 @@ export const Community = () => {
         Are you curious, 🤔 or do you have questions burning in your mind? 🔥
         Look no further! Join our lively Community Forum where you can:
       </p>
-      <ul className="grid list-none  gap-6 sm:grid-cols-2 xl:gap-8">
+      <ul className="flex grid list-none  gap-6 sm:grid-cols-2 xl:gap-8">
         {/*<li>*/}
         {/*  <a*/}
         {/*    href="https://community.keploy.io/"*/}
@@ -286,6 +286,20 @@ export const Community = () => {
         !
       </p>
       {/*TODO : Early adopters and contributors*/}
+      <div
+        className="video-container"
+        style={{textAlign: "center", margin: "2rem 0"}}
+      >
+        <iframe
+          width="80%"
+          height="450"
+          src="https://www.youtube.com/embed/qExCO0lLWUU"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     </section>
   );
 };

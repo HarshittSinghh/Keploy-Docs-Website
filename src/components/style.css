@@ -1,0 +1,246 @@
+.card-part li:hover {
+  background-color: #ddd;
+  border-radius: 15px;
+  color: #000;
+}
+li:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+li p {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+}
+
+li img {
+  border-radius: 0.375rem;
+  transition: transform 0.3s ease;
+}
+
+li:hover img {
+  transform: scale(1.1);
+}
+
+.card-part {
+  transition: box-shadow 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.card-part:hover {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.flex.items-center svg {
+  flex-shrink: 0;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 12px solid red;
+}
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-section img {
+  animation: zoomInOut 5s ease-in-out infinite;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(1.0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+}
+
+.faq-answer {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.faq-question:hover {
+  color: #2563eb; 
+}
+
+.faq-question:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media screen and (max-width: 860px) {
+  .sec-1 {
+    gap: 10px;
+    padding: 0 1rem;
+  }
+
+  .support-card {
+    display: block;
+    margin-bottom: -10px;
+  }
+
+  .support-card > div {
+    margin-bottom: 1.5rem;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  .video-container{
+    width:auto;
+    height: auto;
+  }
+}
+
+.glossary-container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.glossary-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1f2937; 
+  text-decoration: underline;
+  text-decoration-color: #fb923c; 
+}
+.glossary-heading{
+    padding: 10px 20px;
+    background-color: #fdba74;;
+    border-radius: 50px;
+    border: 2px solid #fb923c;
+}
+.glossary-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.glossary-buttons button {
+  width: 40px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  color: #374151; 
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.glossary-buttons button:hover:not(:disabled) {
+  background-color: #fed7aa; 
+  transform: scale(1.05);
+}
+
+.glossary-buttons button.active {
+  background-color: #fdba74; 
+  color: #7c2d12; 
+  border-color: #fb923c;
+  box-shadow: 0 0 8px rgba(255, 136, 0, 0.3);
+}
+
+.glossary-buttons button:disabled {
+  background-color: #f3f4f6; 
+  color: #9ca3af; 
+  cursor: not-allowed;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.glossary-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #111827;
+}
+
+.glossary-section a {
+  display: block;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #ea580c;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.glossary-section a:hover {
+  color: #c2410c; 
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+  .glossary-container {
+    padding: 1rem;
+  }
+}.glossary-search {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.glossary-search-input {
+  width: 60%;
+  max-width: 400px;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glossary-search-input::placeholder {
+  color: #9ca3af; 
+}
+
+.glossary-search-input:focus {
+  border-color: #fb923c; 
+  box-shadow: 0 0 0 3px rgba(251, 146, 60, 0.3); 
+}

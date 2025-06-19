@@ -1,9 +1,12 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import HeroSection from "./HeroSection";
 
 export const QuickStart = () => {
   return (
+    <>
+    <HeroSection />
     <section className="mt-1">
       <h1 className="mb-4 text-4xl font-semibold tracking-wide md:text-4xl">
         Welcome to Keploy Documentation! 🚀
@@ -103,5 +106,6 @@ export const QuickStart = () => {
         limitations for certain use cases.
       </p>
     </section>
+    </>
   );
 };
